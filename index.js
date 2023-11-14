@@ -45,6 +45,7 @@ function verifyToken(req, res, next) {
 // Handling post request
 app.post("/login", async (req, res, next) => {
 	try {
+    console.log("Entering /login endpoint");
 	  const { email, password } = req.body;
 	  const existingUser = await User.findOne({ email });
   
@@ -66,11 +67,13 @@ app.post("/login", async (req, res, next) => {
 		  token: token,
 		},
 	  });
+    console.log("Exiting /login endpoint");
 	} catch (error) {
-	  console.error(error);
-	  res.status(500).json({ error: "Internal server error" });
+	  console.error("Error in /login endpoint:", error);
+      res.status(500).json({ error: "Internal server error during login" });
 	}
   });
+  
   
   // Handling post request
 app.post("/signup", async (req, res, next) => {
