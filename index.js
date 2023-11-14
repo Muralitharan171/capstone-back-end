@@ -15,10 +15,10 @@ app.use(cors({
     origin : "https://capstone-front-end-nu.vercel.app"
 }));
 
-// app.use((req,res,next)=>{
-//   res.setHeader('Content-Security-Policy',"connect-src 'self' https://capstone-backend-5rvl.onrender.com");
-//   next();
-// })
+app.use((req,res,next)=>{
+  res.setHeader('Content-Security-Policy',"connect-src 'self' https://capstone-backend-5rvl.onrender.com");
+  next();
+})
 
 app.use(function(req, res, next) { 
   res.header("Access-Control-Allow-Origin", "https://capstone-front-end-nu.vercel.app");
