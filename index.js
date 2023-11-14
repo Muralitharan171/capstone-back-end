@@ -9,8 +9,14 @@ const cors = require("cors");
 const app = express();
 dotenv.config();
 app.use(cors({
-  origin: "http://localhost:3000"
+  //origin: "http://localhost:3000"
+   origin : "https://capstone-front-end-nu.vercel.app"
 }));
+
+app.use((req,res,next)=>{
+  res.setHeader('Content-Security-Policy',"connect-src 'self' https://capstone-backend-5rvl.onrender.com");
+  next();
+})
 app.use(express.json());
 const jwtSecretKey = process.env.JWT_SECRET_KEY;
 
