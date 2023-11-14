@@ -21,7 +21,7 @@ app.use(cors({
 // })
 
 app.use(function(req, res, next) { 
-  res.header("Access-Control-Allow-Origin", "https://capstone-front-end-nu.vercel.app/");
+  res.header("Access-Control-Allow-Origin", "https://capstone-front-end-nu.vercel.app");
   res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept, Access-Control-Allow-Headers, Access-Control-Request-Method, Access-Control-Request-Headers, Authorization");
   res.header('Access-Control-Allow-Methods', 'GET, PUT, POST, DELETE, PATCH, OPTIONS');
   next();
