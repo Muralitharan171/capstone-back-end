@@ -11,15 +11,21 @@ dotenv.config();
 app.use(express.json());
 const jwtSecretKey = process.env.JWT_SECRET_KEY;
 app.use(cors({
-  //origin: "http://localhost:3000"
-   origin : "https://capstone-front-end-nu.vercel.app"
+ // origin: "http://localhost:3000"
+    origin : "https://capstone-front-end-nu.vercel.app"
 }));
 
-app.use((req,res,next)=>{
-  res.setHeader('Content-Security-Policy',"connect-src 'self' https://capstone-backend-5rvl.onrender.com");
-  next();
-})
+// app.use((req,res,next)=>{
+//   res.setHeader('Content-Security-Policy',"connect-src 'self' https://capstone-backend-5rvl.onrender.com");
+//   next();
+// })
 
+app.use(function(req, res, next) { 
+  res.header("Access-Control-Allow-Origin", "https://capstone-front-end-nu.vercel.app/");
+  res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept, Access-Control-Allow-Headers, Access-Control-Request-Method, Access-Control-Request-Headers, Authorization");
+  res.header('Access-Control-Allow-Methods', 'GET, PUT, POST, DELETE, PATCH, OPTIONS');
+  next();
+});
 
 
 
