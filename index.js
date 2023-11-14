@@ -36,6 +36,10 @@ function verifyToken(req, res, next) {
 	}
   }
 
+  app.get("/", async (req, res, next) => {
+    res.send("Welcome to capstone backend");
+  });
+
 // Handling post request
 app.post("/login", async (req, res, next) => {
 	try {
