@@ -17,6 +17,7 @@ app.use((req,res,next)=>{
   res.setHeader('Content-Security-Policy',"connect-src 'self' https://capstone-backend-5rvl.onrender.com");
   next();
 })
+
 app.use(express.json());
 const jwtSecretKey = process.env.JWT_SECRET_KEY;
 
@@ -181,6 +182,7 @@ app.get("/home", async (req, res, next) => {
   res.send("Welcome to hallss");
 });
 
+mongoose.set('strictQuery',true)
 //Connecting to the database
 mongoose
   .connect("mongodb+srv://murran171:Muralitharan171@cluster0.t7ewgl7.mongodb.net/cpt", { useNewUrlParser: true, useUnifiedTopology: true })
