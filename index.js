@@ -8,6 +8,8 @@ const bcrypt = require("bcrypt");
 const cors = require("cors");
 const app = express();
 dotenv.config();
+app.use(express.json());
+const jwtSecretKey = process.env.JWT_SECRET_KEY;
 app.use(cors({
   //origin: "http://localhost:3000"
    origin : "https://capstone-front-end-nu.vercel.app"
@@ -18,8 +20,8 @@ app.use((req,res,next)=>{
   next();
 })
 
-app.use(express.json());
-const jwtSecretKey = process.env.JWT_SECRET_KEY;
+
+
 
 function verifyToken(req, res, next) {
 	try {
